@@ -3,10 +3,12 @@ const mongoose = require("mongoose");
 const app = express();
 app.use(express.json());
 const cors = require('cors');
+const dotnev = require('dotenv');
+dotnev.config();
 app.use(cors()); 
 mongoose
   .connect(
-    "mongodb+srv://root_user:raghavji8@cluster0.mjcfj.mongodb.net/RestaurentApp?retryWrites=true&w=majority"
+   process.env.MONGO_URI 
   )
   .then((con) => {
     console.log(`Database Connected: ${con.connection.host}`);
