@@ -2,7 +2,7 @@ const Post = require("../models/post");
 const mongoose = require("mongoose");
 exports.createPost = async (req, res) => {
   try {
-    console.log(req.body);
+    console.log(req.body, "req body is here");
     const { email, name, phone, address, services } = req.body;
     const newPost = new Post({
       email,

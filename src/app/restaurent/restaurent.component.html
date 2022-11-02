@@ -1,4 +1,4 @@
-<div class="p-5 mb-4 bg-light rounded-3">
+<div class="p-5 mb-4 bg-light rounded-3 bg-pinkpurple">
   <div class="container-fluid py-1">
     <h1 class="display-5 fw-bold">Restaurent Records Management System</h1>
     <h4 class="col-md-8 fs-2">You can save Records of Restaurent</h4>
@@ -19,11 +19,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let data of allRestaurentData; let i = index">
-        <td>{{ i + 1 }}</td>
+        <td>{{ i + 1 }}.</td>
         <td>{{ data.name }}</td>
         <td>{{ data.email }}</td>
         <td>{{ data.address }}</td>
-        <td>{{ data.phone }}</td>
+        <td>+{{ data.phone.slice(0, 2) }}-{{ data.phone.slice(2) }}</td>
         <td>{{ data.services }}</td>
         <td>
           &nbsp;
@@ -93,11 +93,11 @@
         />
       </div>
       <div class="mb-3">
-        <label class="form-label">Mobile</label>
+        <label class="form-label">Phone</label>
         <input
           type="number"
           class="form-control"
-          formControlName="mobile"
+          formControlName="phone"
           placeholder="+91-1234567890"
           id="exampleInputPassword1"
         />
@@ -108,14 +108,14 @@
           type="text"
           class="form-control"
           formControlName="services"
-          placeholder="chai , coffee"
+          placeholder="Dine in , Takeaway"
           id="exampleInputPassword1"
         />
       </div>
     </form>
     <button
       type="button"
-      class="btn btn-secondary"
+      class="btn btn-secondary ml-1"
       (click)="closeForm()"
       id="clear"
     >
@@ -124,11 +124,10 @@
     <button
       *ngIf="showAdd"
       type="button"
-      class="btn btn-primary"
+      class="btn btn-primary ml-1"
       (click)="addRestaurent()"
     >
       Add Details
     </button>
-    
   </div>
 </ng-template>

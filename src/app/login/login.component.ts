@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  constructor(private formbuilder: FormBuilder, private _http:HttpClient, private _router:Router ) { }
+  constructor(private formbuilder: FormBuilder, private _http: HttpClient, private _router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formbuilder.group({
@@ -21,23 +21,23 @@ export class LoginComponent implements OnInit {
 
   logIn() {
     //console.log(this.loginForm.value);
-    this._http.get<any>('http://localhost:3000/signup').subscribe(
+    this._http.get<any>('/api/signup').subscribe(
       (res) => {
-        const user= res.find((a:any)=>{
+        const user = res.find((a: any) => {
           return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password;
         });
-         if (user) {
+        if (user) {
           alert(user.name + ' logged in successfully');
           this._router.navigate(['/restaurent']);
           this.loginForm.reset();
-         } else {
+        } else {
           alert("Invalid credentials");
-         }
-        }, err=>{
-          console.log(err);
-        })
-      }
-    
+        }
+      }, err => {
+        console.log(err);
+      })
   }
+
+}
 
 

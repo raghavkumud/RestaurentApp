@@ -22,7 +22,7 @@ export class RestaurentComponent implements OnInit {
     this.formValue = this.formbuilder.group({
       name: [''],
       email: [''],
-      mobile: [''],
+      phone: [''],
       address: [''],
       services: [''],
     })
@@ -41,10 +41,10 @@ export class RestaurentComponent implements OnInit {
   addRestaurent() {
     this.restaurentModelObj.name = this.formValue.value.name;
     this.restaurentModelObj.email = this.formValue.value.email;
-    this.restaurentModelObj.mobile = this.formValue.value.mobile;
+    this.restaurentModelObj.phone = this.formValue.value.phone;
     this.restaurentModelObj.address = this.formValue.value.address;
     this.restaurentModelObj.services = this.formValue.value.services;
-
+    console.log(this.restaurentModelObj, 'here you see');
     this.api.postRestaurent(this.restaurentModelObj).subscribe(res => {
       console.log(res);
       alert("Restaurent Added Successfully");
@@ -84,7 +84,7 @@ export class RestaurentComponent implements OnInit {
     this.restaurentModelObj.id = data.id;
     this.formValue.controls['name'].setValue(data.name);
     this.formValue.controls['email'].setValue(data.email);
-    this.formValue.controls['mobile'].setValue(data.mobile);
+    this.formValue.controls['phone'].setValue(data.phone);
     this.formValue.controls['address'].setValue(data.address);
     this.formValue.controls['services'].setValue(data.services);
   }

@@ -66,11 +66,9 @@
             "production": {
               "browserTarget": "restaurentapp:build:production"
             },
-            "options": {
-        "proxyConfig": "src/proxy.conf.json"
-      },
             "development": {
-              "browserTarget": "restaurentapp:build:development"
+              "browserTarget": "restaurentapp:build:development",
+            "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
