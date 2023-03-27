@@ -1,4 +1,4 @@
-# Restaurentapp
+# Restaurent Records Management App
 
 ## Description
 
